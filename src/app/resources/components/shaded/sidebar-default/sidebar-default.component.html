@@ -1,0 +1,31 @@
+<aside class="left-sidebar" data-sidebarbg="skin6">
+  <!-- Sidebar scroll-->
+  <div class="scroll-sidebar">
+      <!-- Sidebar navigation-->
+      <nav class="sidebar-nav">
+        <ul id="sidebarnav">
+            <!-- User Profile-->
+            <li class="sidebar-item pt-2" *ngFor="let autor of autors">
+                <a class="sidebar-link waves-effect waves-dark sidebar-link "href="citation/{{autor.autor_name}}" aria-expanded="false">
+                 
+                  <img src="{{autor.image}}" alt="{{autor.autor_name}}" class="rounded-circle w-50">
+                    <span class="hide-menu">{{autor.autor_name}}</span>
+                </a>
+            </li>
+        </ul>
+        <ul id="sidebarnav">
+          <!-- User Profile-->
+          <li class="sidebar-item">
+                  <a class="sidebar-link waves-effect waves-dark sidebar-link" routerLink="favorites_citation"
+                      aria-expanded="false">
+                      <i class="  fas fa-heart" aria-hidden="true"  style="color:red;font-size:35px;"></i>
+                      <span class="hide-menu">Mes Citations Favorites</span>
+                  </a>
+              </li>
+      </ul>
+
+    </nav>
+      <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>

@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col">
+    <div id="myCarousel" *ngIf=" defaultCitation && defaultCitation.length>0" class="col-md-6">
+       
+      <div class="card mb-4 rounded-3 shadow-sm"*ngFor="let cit of defaultCitation; let i=index" [ngClass]="{'active-citation':selectedIndex===i}">
+        <div class="card-header py-3 text-bg-primary border-primary">
+          <h4 class="my-0 fw-normal">{{cit.autor}}</h4>
+        </div>
+        <div class="card-body">
+         <a  href="author/{{cit._id}}" class='btn btn-info'><i class=" far fa-user font-35 text-white" >{{cit.autor}}</i></a> 
+          <div class="list-unstyled mt-3 mb-4">
+            {{cit.citation}}
+          </div>
+          <div class="row mb-3 text-center">
+            <div class="col-4 themed-grid-col"> <button type="button" class=" btn-primary"><i class=" fas fa-reply"></i></button></div>
+            <div class="col-5 themed-grid-col">
+              <i class="fas fa-star border-2" style="color: yellow;"></i><i class="fas fa-star border-2" style="color: yellow;"></i><i class="fas fa-star  border-2" style="color: yellow;"></i><i class="fas fa-star  border-2"style="color: yellow;"></i><i class="fas fa-star  border-2" style="color:#000;"></i>
+            </div>
+            <div class="col-3 themed-grid-col"> <i class=" far fa-hand-point-right  border-1"id="likes"(click)="likes(cit._id,cit.likes)" > 
+
+            </i>  <i>{{cit.likes||0}}</i></div>
+          </div>
+        </div>
+      </div>
+    <div class="carousel-dot-container" *ngIf="indicator">
+    <span *ngFor="let cit of defaultCitation; let i=index"  class="dot"  [ngClass]="{'active':selectedIndex===i}">
+    </span>
+    </div>
+
+      <div class="btn-carousel btn-prev">
+        <i class="fas fa-arrow-circle-left icon-carousel icon-prev"
+        (click)="onPrevClick()"
+
+        ></i>
+      </div>
+      <div class="btn-carousel btn-next">
+      <i class="fas fa-arrow-circle-right icon-carousel icon-next"
+      (click)="onNextClick()"
+
+      ></i>
+      </div>
+  </div>
+
+  </div>
+</div>

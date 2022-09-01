@@ -1,0 +1,7 @@
+.sidebar-nav #sidebarnav li:hover,.sidebar-nav #sidebarnav li:focus{
+  width:auto;
+
+}
+.sidebar-nav #sidebarnav  li a{
+  color:black;
+}

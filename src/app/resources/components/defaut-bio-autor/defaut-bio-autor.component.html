@@ -1,0 +1,24 @@
+
+<div class="row" *ngIf="infoAuthor && infoAuthor.length !==0" >
+
+    <div class="col ">
+        <div class="card">
+            <div class="card-body border-4 border-danger  bg-light">
+             <div class="content">
+                <div class="info">
+                   <img src="{{infoAuthor.image}}" alt="{{infoAuthor.autor_name}}" class=" w-30 rounded-circle "> <br>
+                   <i>{{infoAuthor.autor_name}}</i>
+                </div>
+                  <div class="bio-content">
+                    <p>
+                      {{infoAuthor.bio_aut}}
+                    </p>
+                  </div>
+             </div>
+             
+          </div>
+        </div>
+    </div>
+    <!-- Column -->
+  </div>
+  

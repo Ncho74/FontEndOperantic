@@ -1,0 +1,23 @@
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center" *ngFor="let cit of citation;let i=index">
+  <div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+      <div class="card-header py-3 text-bg-primary border-primary">
+        <h4 class="my-0 fw-normal">Socrate</h4>
+      </div>
+      <div class="card-body">
+        <img [src]=" varun" alt="user-img" width="36" class="rounded-circle">
+        <div class="list-unstyled mt-3 mb-4">
+         {{cit.citation}}
+        </div>
+        <div class="row mb-3 text-center">
+          <div class="col-4 themed-grid-col"> <button type="button" class=" btn-primary"><i class=" fas fa-reply"></i></button></div>
+          <div class="col-5 themed-grid-col">
+            <i class="fas fa-star border-2" style="color: yellow;"></i><i class="fas fa-star border-2" style="color: yellow;"></i><i class="fas fa-star  border-2" style="color: yellow;"></i><i class="fas fa-star  border-2"style="color: yellow;"></i><i class="fas fa-star  border-2" style="color:#000;"></i>
+          </div>
+          <div class="col-3 themed-grid-col">230 <i class=" far fa-hand-point-right" style="color: blue;"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
