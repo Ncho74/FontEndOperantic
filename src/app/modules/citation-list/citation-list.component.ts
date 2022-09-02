@@ -11,7 +11,7 @@ export class CitationListComponent implements OnInit {
   varun:string="assets/plugins/images/users/varun.jpg";
   citation:any=[]
   currentIndex = -1;
-  title = '';
+  title = 'pagination';
   page = 1;
   count = 0;
   pageSize = 3;
@@ -21,6 +21,7 @@ export class CitationListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.listCitation()
     
   }
   getRequestParams(searchTitle: string, page: number, pageSize: number): any {
@@ -36,37 +37,26 @@ export class CitationListComponent implements OnInit {
     }
     return params;
   }
-  retrieveTutorials(): void {
+    listCitation(): void {
     const params = this.getRequestParams(this.title, this.page, this.pageSize);
-    // this.tutorialService.getAll(params)
-    // .subscribe(
-    //   response => {
-    //     const { tutorials, totalItems } = response;
-    //     this.tutorials = tutorials;
-    //     this.count = totalItems;
-    //     console.log(response);
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   });
     this.s.findAllCitation()
-          .pipe(map((res:any)=>{
-            this.citation=res
-          }))
-          .subscribe()
+          .subscribe((response)=>{
+            this.citation=response
+          })
+
   }
   handlePageChange(event: number): void {
     this.page = event;
-    this.retrieveTutorials();
+    this.listCitation();
   }
   handlePageSizeChange(event: any): void {
     this.pageSize = event.target.value;
     this.page = 1;
-    this.retrieveTutorials();
+    this.listCitation();
   }
   searchTitle(): void {
     this.page = 1;
-    this.retrieveTutorials();
+    this.listCitation();
   }
 
 }
