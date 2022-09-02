@@ -22,12 +22,12 @@ export class UserAuthComponent implements OnInit {
          [
           Validators.required,
           Validators.email,
-           Validators.minLength(6)
+           Validators.minLength(4)
          ]
           ),
         password:new FormControl(null,[
           Validators.required,
-           Validators.minLength(5)
+           Validators.minLength(4)
         ])
       })
      }
