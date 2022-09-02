@@ -4,4 +4,5 @@ export class Citation{
   citation!:String;
   id_aut!:String;
   favorite!:Boolean;
+  user!:String;
 }

@@ -13,6 +13,7 @@ import { CitationService } from 'src/app/services/citation.service';
 export class AddCitationComponent implements OnInit {
     author:any=[];
     addCitation:FormGroup
+    user=sessionStorage.getItem('user')
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -24,7 +25,8 @@ export class AddCitationComponent implements OnInit {
         theme_cit:["",Validators.required],
         id_aut:["",Validators.required],
         citation:["",Validators.required],
-        favorite:[]
+        favorite:[],
+        user:[]
     })
     
   }

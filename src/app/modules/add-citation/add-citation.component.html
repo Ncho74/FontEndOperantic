@@ -10,6 +10,12 @@
                           class="form-control p-0 border-0" formControlName="theme_cit">
                   </div>
               </div>
+              <div class="form-group mb-4 d-none">
+                <div class="col-md-12 border-bottom p-0 d-none">
+                    <input type="text"
+                        class="form-control p-0 border-0 d-none" formControlName="user" [(ngModel)]="user">
+                </div>
+            </div>
                  <label for="id_aut" class="col-md-12 p-0">Selectionné l'Auteur<i style="color:red;">*</i></label>
                     <select formControlName="id_aut" class="form-select">
                      
