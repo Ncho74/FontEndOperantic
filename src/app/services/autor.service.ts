@@ -22,7 +22,7 @@ export class AutorService {
 
 getAllAuthor():Observable<any>{
   const user=sessionStorage.getItem('user')
-  return this.http.get(`${this.ApiRest_url}/${user}`,{headers:this.httpHeaders})
+  return this.http.get(`${this.ApiRest_url}/allCitation/${user}`,{headers:this.httpHeaders})
 }
   findAutorByName(autor:string):Observable<any>{
     let api_rest=`${this.ApiRest_url}/searchAutor`

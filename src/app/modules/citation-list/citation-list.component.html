@@ -13,6 +13,8 @@
         <td>Numero</td>
         <td>Auteur</td>
         <td>Theme</td>
+        <td>Citation</td>
+        <td>Action</td>
      </tr>
     </thead>
     <tbody>
@@ -26,10 +28,16 @@
             {{i+1}}
           </td>
           <td>
-            {{cit.citation}}
+            {{cit.autor}}
           </td>
           <td>
             {{cit.theme_cit}}
+          </td>
+          <td>
+            {{cit.citation}}
+          </td>
+          <td>
+            <a routerLinkActive='active' routerLink='custom/updateCitation/{{cit._id}}' class='btn btn-primary'>Modifier</a>
           </td>
           
       </tr>
