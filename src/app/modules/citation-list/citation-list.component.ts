@@ -42,6 +42,7 @@ export class CitationListComponent implements OnInit {
     this.s.findAllCitation()
           .subscribe((response)=>{
             this.citation=response
+            console.log(this.citation)
           })
 
   }

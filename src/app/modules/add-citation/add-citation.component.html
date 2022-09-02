@@ -17,10 +17,10 @@
                 </div>
             </div>
                  <label for="id_aut" class="col-md-12 p-0">Selectionné l'Auteur<i style="color:red;">*</i></label>
-                    <select formControlName="id_aut" class="form-select">
+                    <select formControlName="autor" class="form-select">
                      
                       <option [ngValue]="null" disabled>Selectionné l'Auteur</option>
-                      <option *ngFor="let  aut of author " [ngValue]="aut._id">{{aut.autor_name}}</option>
+                      <option *ngFor="let  aut of author " [ngValue]="aut.autor_name">{{aut.autor_name}}</option>
                     </select>
            
               <div class="form-group mb-4">

@@ -23,7 +23,7 @@ export class AddCitationComponent implements OnInit {
   ) { 
     this.addCitation= this.formBuilder.group({
         theme_cit:["",Validators.required],
-        id_aut:["",Validators.required],
+        autor:["",Validators.required],
         citation:["",Validators.required],
         favorite:[],
         user:[]

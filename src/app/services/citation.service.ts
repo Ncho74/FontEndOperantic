@@ -19,7 +19,8 @@ export class CitationService {
     return this.http.post(api_rest,data)
   }
   findAllCitation():Observable<any>{
-    let api_rest=`${this.ApiRest_url}`
+    const id=sessionStorage.getItem("user")
+    let api_rest=`${this.ApiRest_url}/listCitation/${id}`
     return this.http.get(api_rest)
                     .pipe(catchError(
                       this.handleError
