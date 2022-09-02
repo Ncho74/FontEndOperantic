@@ -18,6 +18,7 @@ import { AutorService } from '../services/autor.service';
 import { UpdateAuthorComponent } from '../modules/update-author/update-author.component';
 import { UpdateCitationComponent } from '../modules/update-citation/update-citation.component';
 import { CitationService } from '../services/citation.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -39,7 +40,8 @@ import { CitationService } from '../services/citation.service';
     RouterModule,
     ShadedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers:[AdminService,AutorService,CitationService]
 })
