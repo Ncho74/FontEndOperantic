@@ -48,6 +48,14 @@ export class CitationService {
                       return res ||{}
                    }))
   }
+  fetchFavorites():Observable<any>{
+    const id=sessionStorage.getItem("user")
+    let api_rest=`${this.ApiRest_url}/favorits/${id}`
+    return this.http.get(api_rest)
+                    .pipe(catchError(
+                      this.handleError
+                    ))
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
