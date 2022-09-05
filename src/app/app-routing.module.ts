@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { DefaultComponent } from './default/default.component';
@@ -62,6 +62,14 @@ component:AddCitationComponent
     component:  UpdateCitationComponent
 
 }
+,{
+  path:'infoAuthor/:id',
+  component:AutorDetailComponent
+},{
+  path:'readCitation/:id',
+  component:CitationDetailComponent
+}
+
 ]
 },
 {

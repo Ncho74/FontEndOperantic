@@ -1,1 +1,16 @@
-<p>autor-detail works!</p>
+<div class="card mb-3 m-auto" *ngIf="author && author.length!==0" >
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title text-center">Information sur {{author.autor_name}} </h5>
+          <div class="row ">
+            <div class="col-md-4 ml-4 ">
+              <h5 class="text-center text-muted">Nom de l'auteur</h5>
+             <h5 class="text-center">{{author.autor_name}}</h5>
+            </div>
+            <i class="text-muted ml-4"> Biographie de l'auteur</i>
+          <p class="card-text text-center" >{{author.bio_aut}}</p>
+          <p lass="card-text text-center">{{author.histPart_aut}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
