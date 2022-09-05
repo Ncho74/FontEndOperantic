@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { map } from 'rxjs';
 import { CitationService } from 'src/app/services/citation.service';
 
@@ -17,7 +18,10 @@ export class CitationListComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
   constructor(
-    private s:CitationService
+    private s:CitationService,
+    private ngZone:NgZone,
+    private router:Router
+
   ) { }
 
   ngOnInit(): void {
@@ -58,6 +62,14 @@ export class CitationListComponent implements OnInit {
   searchTitle(): void {
     this.page = 1;
     this.listCitation();
+  }
+  delete(id:any,i:number){
+    if(window.confirm('Vous etes de vouloir supprimer ?')){
+      this.s.deleteCitation(id).subscribe(()=>{
+        this.citation.splice(i,1)
+        window.location.reload()
+      })
+    }
   }
 
 }

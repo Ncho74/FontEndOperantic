@@ -16,7 +16,7 @@ export class UpdateAuthorComponent implements OnInit {
       dateDeces_aut:"",
       lieuNaiss_aut:"",
       histPart_aut:"",
-      bio_aut!:"",
+      bio_aut:"",
   
     }
  

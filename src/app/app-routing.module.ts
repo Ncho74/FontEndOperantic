@@ -61,7 +61,8 @@ component:AddCitationComponent
     path:"updateCitation/:id",
     component:  UpdateCitationComponent
 
-}]
+}
+]
 },
 {
   path:"user",

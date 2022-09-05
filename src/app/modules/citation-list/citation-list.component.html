@@ -37,7 +37,8 @@
             {{cit.citation}}
           </td>
           <td>
-            <a routerLinkActive='active' routerLink='custom/updateCitation/{{cit._id}}' class='btn btn-primary'>Modifier</a>
+            <a routerLinkActive='active' routerLink='/custom/updateCitation/{{cit._id}}' class='btn btn-primary'>Modifier</a>
+            <a (click)="delete(cit._id,i)" class='btn btn-danger  ml-2'>Supprimer</a>
           </td>
           
       </tr>
