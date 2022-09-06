@@ -1,1 +1,30 @@
-<p>dashbord works!</p>
+<div class="container">
+    <div class="row" *ngIf="compteur && compteur.length!==0">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Totaux d'auteurs</h5>
+                  <p class="card-text">
+                    <img [src]="autors" alt="">
+                  </p>
+                  <a routerLink="/custom/autorList" routerLinkActive="active" class="btn btn-primary w-35">
+                    <i style="font-size: 30px; color:white" class=" fas fa-solid fa-eye"></i>
+                </a><span><i style="color: yellow ; font-size: 40px;">{{compteur.nbrAutor}}</i></span>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Totaux de citations</h5>
+                  <p class="card-text">
+                    <img [src]="citations" alt="">
+                  </p>
+                  <a routerLink="/custom/citationList" routerLinkActive="active" class="btn btn-primary w-35">
+                    <i style="font-size: 30px; color:white" class=" fas fa-solid fa-eye">
+                </i></a><span><i style="color: yellow ; font-size: 40px;"  >{{compteur.nbrCit}}</i></span>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

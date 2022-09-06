@@ -56,6 +56,15 @@ export class CitationService {
                       this.handleError
                     ))
   }
+  dashbord():Observable<any>{
+    
+    const id=sessionStorage.getItem("user")
+    let api_rest=`${this.ApiRest_url}/dashbord/${id}`
+    return this.http.get(api_rest)
+                    .pipe(catchError(
+                      this.handleError
+                    ))
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
