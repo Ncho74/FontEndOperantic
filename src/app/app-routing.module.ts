@@ -91,7 +91,6 @@ component:AddCitationComponent
   {
     path:'',
     component:DefautCitationComponent,
-    pathMatch:"full"
   } ,
   {
     path:"favorites_citation",
@@ -105,6 +104,11 @@ component:AddCitationComponent
     component:DefautBioAutorComponent
   }
 ]
+
+},{
+  path:"**",
+  redirectTo:"/",
+  pathMatch:"full"
 
 }
 ];

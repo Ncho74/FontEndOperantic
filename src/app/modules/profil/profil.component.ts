@@ -11,9 +11,11 @@ export class ProfilComponent implements OnInit {
  img1="assets/plugins/images/large/img1.jpg";
  genu="assets/plugins/images/users/genu.jpg";
  profile:any={
+  _id:"",
   pseudo:"",
   tel:"",
-  email:''
+  email:'',
+  password:""
  }
 
   constructor(
@@ -30,6 +32,7 @@ export class ProfilComponent implements OnInit {
                 })
   }
   onSubmit(){
+    console.log(this.profile._id)
     this.admin.updateUser(this.profile._id,this.profile)
               .subscribe(()=>{
                 this.ngZone.run(()=>{
