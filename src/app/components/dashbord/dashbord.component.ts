@@ -21,7 +21,6 @@ export class DashbordComponent implements OnInit {
     this.citS.dashbord()
               .pipe(map((res:any)=>{
                   this.compteur=res
-                  console.log(this.compteur)
               }))
               .subscribe()
         

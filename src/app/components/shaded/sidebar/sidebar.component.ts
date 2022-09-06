@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private ngZone: NgZone,
+    private activatedRoute:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  deconnexion(){
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user")
+    this.ngZone.run(()=>{
+      this.router.navigate(['/'])
+    },(err:any)=>{
+      console.log(err);
+    });
   }
 
 }

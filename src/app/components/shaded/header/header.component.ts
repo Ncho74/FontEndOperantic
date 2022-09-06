@@ -11,7 +11,8 @@ export class HeaderComponent implements OnInit {
   user:any
  varun:string="assets/plugins/images/users/varun.jpg";
  logo2="assets/plugins/images/logo-text.png";
- logo1="assets/plugins/images/logo-icon.png"
+ logo1="assets/plugins/images/home--v2.png"
+
   constructor(
     private s:AdminService 
     ) { }
