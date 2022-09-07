@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { AdminService } from '../services/admin.service';
+import { CitationService } from '../services/citation.service';
 
 @Component({
   selector: 'app-default',
@@ -9,18 +10,16 @@ import { AdminService } from '../services/admin.service';
 })
 export class DefaultComponent implements OnInit {
   user:any;
-   page:string ="Dashbord"
+   page:string ="Secret de vision et la sage";
+   compteur:any
+   
   constructor(
-    private s:AdminService
+    private s:AdminService,
+
+    private citS:CitationService
   ) { }
 
   ngOnInit(): void {
-    this.s.getuserConnect(sessionStorage.getItem("token"))
-          .pipe(map((res:any)=>{
-            this.user=res
-            sessionStorage.setItem("user",this.user._id)
-          }))
-          .subscribe()
   }
 
 }

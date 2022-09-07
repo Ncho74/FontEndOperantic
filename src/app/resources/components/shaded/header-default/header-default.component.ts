@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-default.component.css']
 })
 export class HeaderDefaultComponent implements OnInit {
-
+  page:string ="Secret de la vision et la sagesse";
   constructor() { }
 
   ngOnInit(): void {

@@ -10,11 +10,11 @@
                             class="form-control p-0 border-0"  name="theme_cit"  [(ngModel)]="citation.theme_cit">
                     </div>
                 </div>
-                   <label for="id_aut" class="col-md-12 p-0">Selectionné l'Auteur<i style="color:red;">*</i></label>
-                      <select  class="form-select" name="autor"  [(ngModel)]="citation" ngValue="citation.autor">
+                   <label for="id_aut" class="col-md-12 p-0">Selectionné l'Auteur<i style="color:red;"></i></label>
+                      <select  class="form-select" name="autor"  [(ngModel)]="citation.autor" >
                        
-                        <option [ngValue]="null" disabled>Selectionné l'Auteur</option>
-                        <option *ngFor="let  aut of author " [ngValue]="aut.autor_name">{{aut.autor_name}}</option>
+                        <option [ngValue]="citation.autor" selected>{{citation.autor}}</option>
+                        <option *ngFor="let  aut of author " [ngValue]="aut.autor_name" >{{aut.autor_name}}</option>
                       </select>
              
                 <div class="form-group mb-4">

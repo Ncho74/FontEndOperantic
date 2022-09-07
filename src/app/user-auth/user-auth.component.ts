@@ -40,8 +40,10 @@ export class UserAuthComponent implements OnInit {
       return ;
     }
     this.s.login(this.loginForm.value)
-          .pipe(map(jwt=>this.router.navigate(["custom"])))
-          .subscribe();
+        
+          .subscribe(()=>{
+            this.router.navigate(["custom"])
+          });
   }
 
 }

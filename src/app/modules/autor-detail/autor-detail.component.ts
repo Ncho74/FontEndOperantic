@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { AutorService } from 'src/app/services/autor.service';
+import { CitationService } from 'src/app/services/citation.service';
 
 @Component({
   selector: 'app-autor-detail',
@@ -13,12 +14,13 @@ export class AutorDetailComponent implements OnInit {
   getAuthor:any
   constructor(
     private activatedRoute:ActivatedRoute,
-    private s:AutorService
+    private s:AutorService,
+    private citService:CitationService
   ) { }
 
   ngOnInit(): void {
     this.getAuthor = this.activatedRoute.snapshot.paramMap.get('id');
-    this.s.getAutorById(this.getAuthor)
+    this.citService.fetchById(this.getAuthor)
           .pipe(map((res:any)=>{
                this.author=res
           } ))

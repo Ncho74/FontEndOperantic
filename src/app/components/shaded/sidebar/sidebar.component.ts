@@ -20,11 +20,8 @@ export class SidebarComponent implements OnInit {
   deconnexion(){
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user")
-    this.ngZone.run(()=>{
-      this.router.navigate(['/'])
-    },(err:any)=>{
-      console.log(err);
-    });
+    this.router.navigate(['/'])
+  
   }
 
 }

@@ -39,7 +39,7 @@ export class AddAutorComponent implements OnInit {
     if(this.authorForm.invalid){
       return ;
     }
-    console.log(this.authorForm.value)
+
      this.s.addAutor(this.authorForm.value).
           subscribe(()=>{
             this.ngZone.run(()=>{
@@ -51,4 +51,5 @@ export class AddAutorComponent implements OnInit {
 
 
   }
+   
 }

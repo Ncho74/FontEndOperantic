@@ -20,10 +20,11 @@ export class AutorListComponent implements OnInit {
           
   }
   delete(id:any,i:any){
-    console.log(id);
+   
     if(window.confirm('Vous etes de vouloir supprimer ?')){
       this.Aut.deleteAuthor(id).subscribe((res)=>{
         this.author.splice(i,1)
+        window.location.reload()
       })
     }
   }

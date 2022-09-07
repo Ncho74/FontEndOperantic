@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import {catchError,map} from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Citation } from '../interfaces/citation';
+import { AdminService } from './admin.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,11 @@ export class CitationService {
     ApiRest_url: string="http://127.0.0.1:3000/citation";
     //definie l'entete de la requete http en json
      httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-  constructor(private http:HttpClient) { }
+     id:any
+  constructor(
+    private http:HttpClient,
+    private admin:AdminService
+    ) { }
 
   addCitation(data:Citation):Observable<any>{
     let api_rest=`${this.ApiRest_url}/addCitation`;
@@ -48,6 +53,13 @@ export class CitationService {
                       return res ||{}
                    }))
   }
+  readById(id:string):Observable<any>{
+    let api_rest=`${this.ApiRest_url}/readCitation/${id}`;
+    return this.http.get(api_rest,{headers:this.httpHeaders})
+                    .pipe(map((res:any)=>{
+                      return res ||{}
+                   }))
+  }
   fetchFavorites():Observable<any>{
     const id=sessionStorage.getItem("user")
     let api_rest=`${this.ApiRest_url}/favorits/${id}`
@@ -57,9 +69,17 @@ export class CitationService {
                     ))
   }
   dashbord():Observable<any>{
-    
-    const id=sessionStorage.getItem("user")
+      this.admin.getuserConnect(sessionStorage.getItem('token'))
+        .subscribe((res:any)=>{
+          sessionStorage.setItem("user",res._id)
+          
+        })
+    let id=sessionStorage.getItem("user")
+    if(id===null){
+      window.location.reload()
+    }
     let api_rest=`${this.ApiRest_url}/dashbord/${id}`
+
     return this.http.get(api_rest)
                     .pipe(catchError(
                       this.handleError

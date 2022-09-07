@@ -36,11 +36,9 @@ export class UpdateCitationComponent implements OnInit {
        this.author=res
     }))
   .subscribe()
-  console.log(this.getCitation)
    this.citationService.fetchById(this.getCitation).pipe(map((res:any)=>{
 
       this.citation=res
-      console.log(this.citation)
    }))
    .subscribe()
   }
@@ -58,7 +56,6 @@ export class UpdateCitationComponent implements OnInit {
             });
           })
   }
-
   }
 
 

@@ -12,6 +12,7 @@ export class DashbordComponent implements OnInit {
    compteur:any
    autors="assets/plugins/images/author5.png";
    citations="assets/plugins/images/citation.png"
+   user:any;
   constructor(
     private s:AdminService,
     private citS:CitationService
@@ -19,10 +20,9 @@ export class DashbordComponent implements OnInit {
 
   ngOnInit(): void {
     this.citS.dashbord()
-              .pipe(map((res:any)=>{
-                  this.compteur=res
-              }))
-              .subscribe()
+              .subscribe((res:any)=>{
+                this.compteur=res
+            })
         
   }
 

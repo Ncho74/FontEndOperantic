@@ -18,10 +18,9 @@ export class CitationDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCitation = this.activatedRoute.snapshot.paramMap.get('id');
-    this.s.fetchById(this.getCitation)
+    this.s.readById(this.getCitation)
                       .pipe(map((res:any)=>{
                         this.citation=res
-                        console.log(this.citation)
                       }))
                       .subscribe()
       }

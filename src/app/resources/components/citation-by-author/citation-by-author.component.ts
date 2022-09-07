@@ -18,7 +18,7 @@ export class CitationByAuthorComponent implements OnInit {
    indicator=false
    selectedIndex=0;
    getAuthor:any
-   font:any
+
   constructor(
     private serviceCitation:ServiceCitationService,
     private router: Router,
@@ -42,7 +42,7 @@ export class CitationByAuthorComponent implements OnInit {
 
   }
 
- likes(id:string,like:number):any{
+ likes(id:string,like:number){
       const data={
         id:null,
         id_cit:id,
@@ -68,7 +68,7 @@ export class CitationByAuthorComponent implements OnInit {
           .subscribe(() => {console.log("J'aime with success") });
 
 
-       this.serviceCitation. GetCitationByAuthor(this.getAuthor )
+       this.serviceCitation.GetCitationByAuthor(this.getAuthor )
          .subscribe((res)=>{
           this.defaultCitation=res
         })
@@ -79,12 +79,12 @@ export class CitationByAuthorComponent implements OnInit {
         console.log(like,lik)
         this.serviceCitation.likes(id,{likes:lik})
         .subscribe(() => {console.log("J'aime with success") });
-        this.serviceCitation. GetCitationByAuthor(this.getAuthor )
+        this.serviceCitation.GetCitationByAuthor(this.getAuthor )
         .subscribe((res)=>{
         this.defaultCitation=res
       })
 
-
+  
       }
 
 

@@ -20,10 +20,12 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { DefautBioAutorComponent } from './resources/components/defaut-bio-autor/defaut-bio-autor.component';
 import { UpdateAuthorComponent } from './modules/update-author/update-author.component';
 import { UpdateCitationComponent } from './modules/update-citation/update-citation.component';
+import { ProtectUrlGuard } from './custom/protect-url.guard';
 const routes: Routes = [
    {
     path:"custom",
   component: DefaultComponent,
+  canActivate:[ProtectUrlGuard],
   children:[
     {
     path:"",

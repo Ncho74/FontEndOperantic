@@ -12,7 +12,7 @@ export class DefautCitationComponent implements OnInit {
 defaultCitation:any=[]
 control=true;
  autoSlide=true;
- slideInterval=5000;
+ slideInterval=7000;
  indicator=false
  selectedIndex=0;
   constructor(
@@ -34,6 +34,7 @@ control=true;
     }
   }
   likes(id:string,like:number){
+   
     const data={
       id:null,
       id_cit:id,

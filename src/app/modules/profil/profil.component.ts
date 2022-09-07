@@ -32,7 +32,6 @@ export class ProfilComponent implements OnInit {
                 })
   }
   onSubmit(){
-    console.log(this.profile._id)
     this.admin.updateUser(this.profile._id,this.profile)
               .subscribe(()=>{
                 this.ngZone.run(()=>{

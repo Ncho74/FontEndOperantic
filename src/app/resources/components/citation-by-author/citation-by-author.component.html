@@ -16,10 +16,12 @@
             <div class="col-5 themed-grid-col">
               <i class="fas fa-star border-2" style="color: yellow;"></i><i class="fas fa-star border-2" style="color: yellow;"></i><i class="fas fa-star  border-2" style="color: yellow;"></i><i class="fas fa-star  border-2"style="color: yellow;"></i><i class="fas fa-star  border-2" style="color:#000;"></i>
             </div>
-            <div class="col-3 themed-grid-col"> <i class=" far fa-hand-point-right " id="likes"(click)="likes(cit._id,cit.likes)" > 
+              <div class="col-3 themed-grid-col">
+              <i class=" far fa-hand-point-right " id="likes"(click)="likes(cit._id,cit.likes)" > 
 
-            </i>
-            <i>{{cit.likes||0}}</i></div>
+              </i>
+              <i>{{cit.likes||0|number}}</i>
+          </div>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { ServiceCitationService } from '../../services/service-citation.service'
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  page:string ="Secret de la vision et la sagesse";
   constructor(private serviceCitation:ServiceCitationService,private serviceAutor:ServiceAutorService) { }
 
   ngOnInit(): void {
