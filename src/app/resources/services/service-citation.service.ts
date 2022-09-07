@@ -56,4 +56,8 @@ handleError(error: HttpErrorResponse) {
   console.log(errorMessage);
   return throwError(errorMessage);
 }
+findFavoritesCitation(){
+  
+
+}
 }

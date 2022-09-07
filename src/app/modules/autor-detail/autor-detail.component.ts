@@ -20,7 +20,7 @@ export class AutorDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAuthor = this.activatedRoute.snapshot.paramMap.get('id');
-    this.citService.fetchById(this.getAuthor)
+    this.s.getAutorById(this.getAuthor)
           .pipe(map((res:any)=>{
                this.author=res
           } ))

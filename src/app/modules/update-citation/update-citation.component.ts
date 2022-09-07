@@ -36,7 +36,7 @@ export class UpdateCitationComponent implements OnInit {
        this.author=res
     }))
   .subscribe()
-   this.citationService.fetchById(this.getCitation).pipe(map((res:any)=>{
+   this.citationService.readById(this.getCitation).pipe(map((res:any)=>{
 
       this.citation=res
    }))
