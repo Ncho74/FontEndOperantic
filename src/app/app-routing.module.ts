@@ -21,6 +21,7 @@ import { DefautBioAutorComponent } from './resources/components/defaut-bio-autor
 import { UpdateAuthorComponent } from './modules/update-author/update-author.component';
 import { UpdateCitationComponent } from './modules/update-citation/update-citation.component';
 import { ProtectUrlGuard } from './custom/protect-url.guard';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 const routes: Routes = [
    {
     path:"custom",
@@ -83,7 +84,12 @@ component:AddCitationComponent
   },{
     path:"sign",
     component:UserloginComponent
-  },]
+  },
+  {
+    path:"forget",
+    component:ForgetPasswordComponent
+  }
+]
 },
 
 {

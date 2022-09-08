@@ -11,12 +11,14 @@ import { DefaultModuleModule } from './resources/module/default-module/default-m
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShadedResourceModule } from './resources/module/shaded-resource/shaded-resource.module';
 import { WebStorageService } from './resources/services/web-storage.service';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ForgetPasswordComponent,
   
    ],
   imports: [

@@ -57,7 +57,7 @@ handleError(error: HttpErrorResponse) {
   return throwError(errorMessage);
 }
 findFavoritesCitation(){
-  
-
+  let url=this.Api_rest+""
+  return this.http.get(`${url}/favorites`)
 }
 }
