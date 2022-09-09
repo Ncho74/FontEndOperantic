@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { AdminService} from '../services/admin.service';
@@ -11,7 +11,8 @@ import { AdminService} from '../services/admin.service';
 })
 
 export class UserloginComponent implements OnInit {
- 
+    error:any
+    submited:boolean=false
    userForm:FormGroup
   constructor(
     private s:AdminService,
@@ -23,11 +24,13 @@ export class UserloginComponent implements OnInit {
       pseudo:[""],
       email:[""],
       password:[""],
-      tel:[""],
+      tel:[""]
 
     })
   }
+  get f(){ return this.userForm.controls}
   ngOnInit(): void {
+   
   }
 
   onSubmit():any{
@@ -35,7 +38,7 @@ export class UserloginComponent implements OnInit {
    if(this.userForm.invalid){
     return ;
    }
-    this.s.register(this.userForm.value)
+   this.s.register(this.userForm.value)
 
     .pipe(map((res:any)=>{
        return res
@@ -44,9 +47,12 @@ export class UserloginComponent implements OnInit {
      
       this.ngZone.run(()=>{
         this.router.navigate(['/user'])
-      },(err:any)=>{
-            return err
-      });
+      
     })
-  }
+  },(err:any)=>{
+    this.error=err.error.message
+  })
+
+
+}
 }

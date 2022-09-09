@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShadedResourceModule } from './resources/module/shaded-resource/shaded-resource.module';
 import { WebStorageService } from './resources/services/web-storage.service';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 
 
@@ -19,6 +21,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
   declarations: [
     AppComponent,
     ForgetPasswordComponent,
+    ResetPasswordComponent,
+    NewPasswordComponent,
   
    ],
   imports: [

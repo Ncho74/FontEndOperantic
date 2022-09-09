@@ -56,8 +56,6 @@ export class CitationByAuthorComponent implements OnInit {
         const listLike=JSON.parse(oldrecords)
 
         const liker=listLike.find((m:any)=>m.id_cit===id)
-
-        console.log(liker,id)
         if(liker!==undefined && liker.islike===true){
             return;
         }
@@ -65,7 +63,7 @@ export class CitationByAuthorComponent implements OnInit {
         this.webStorageService.saveObj(data)
         console.log(lik,like)
           this.serviceCitation.likes(id,{likes:lik})
-          .subscribe(() => {console.log("J'aime with success") });
+          .subscribe();
 
 
        this.serviceCitation.GetCitationByAuthor(this.getAuthor )
@@ -78,7 +76,7 @@ export class CitationByAuthorComponent implements OnInit {
         this.webStorageService.saveObj(data)
         console.log(like,lik)
         this.serviceCitation.likes(id,{likes:lik})
-        .subscribe(() => {console.log("J'aime with success") });
+        .subscribe();
         this.serviceCitation.GetCitationByAuthor(this.getAuthor )
         .subscribe((res)=>{
         this.defaultCitation=res

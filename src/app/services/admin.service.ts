@@ -42,5 +42,14 @@ export class AdminService {
     let api_url=`${this.ApiRest_url}/${id}`;
       return this.http.put(api_url,data,{headers:this.httpHeaders})
   }
+ forgetPasswordSend(data:any){
+  let api_rest=`${this.ApiRest_url}/forgetPassword/`
+ return   this.http.post(api_rest,data)
+}
+
+resetPassword(id:string,data:any):Observable<any>{
+  let api_rest=`${this.ApiRest_url}/resetPassword/${id}`
+ return   this.http.put(api_rest,data)
+}
 
 }

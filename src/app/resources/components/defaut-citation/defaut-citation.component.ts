@@ -46,15 +46,13 @@ control=true;
       const listLike=JSON.parse(oldrecords)
 
       const liker=listLike.find((m:any)=>m.id_cit===id)
-
-      console.log(liker,id)
       if(liker!==undefined && liker.islike===true){
           return;
       }
       else{
       this.webStorageService.saveObj(data)
         this.serviceCitation.likes(id,{likes:like+1})
-        .subscribe(() => {console.log("J'aime with success") });
+        .subscribe();
 
         
         this.serviceCitation.GetCitation().subscribe(res=>{
@@ -65,7 +63,7 @@ control=true;
     else{
       this.webStorageService.saveObj(data)
       this.serviceCitation.likes(id,{likes:like+1})
-      .subscribe(() => {console.log("J'aime with success") });
+      .subscribe();
       this.serviceCitation.GetCitation().subscribe(res=>{
         this.defaultCitation=res
       })

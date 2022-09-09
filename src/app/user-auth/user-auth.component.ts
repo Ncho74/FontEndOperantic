@@ -10,6 +10,7 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./user-auth.component.css']
 })
 export class UserAuthComponent implements OnInit {
+  error:any
    loginForm:FormGroup 
   constructor(
     private s:AdminService,
@@ -43,7 +44,11 @@ export class UserAuthComponent implements OnInit {
         
           .subscribe(()=>{
             this.router.navigate(["custom"])
-          });
+          },
+        (err:any)=>{
+           this.error=err.error.message
+        }
+          );
   }
 
 }
