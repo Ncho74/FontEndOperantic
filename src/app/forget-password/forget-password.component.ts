@@ -1,10 +1,12 @@
 import { DOCUMENT } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit,TemplateRef} from '@angular/core';
 import { Router } from '@angular/router';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { catchError, map, throwError } from 'rxjs';
 import { AdminService } from '../services/admin.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -22,9 +24,11 @@ export class ForgetPasswordComponent implements OnInit {
     url_app: '',
     email_To: '',
     }
+
   constructor(
     private s:AdminService,
-    private router:Router
+    private router:Router,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -53,13 +57,13 @@ export class ForgetPasswordComponent implements OnInit {
         }, (error) => {
           console.log(error.text);
         });
-
- window.alert("  Un lien vous avez ete envoyer sur votre boite de messagerie,veillez le suivre pour finaliser la reinitialisation de votre mot de passe")
-
-
+        this ._snackBar.openFromComponent(ResetPasswordComponent, {
+          duration : 5 * 1000 ,
+        });
   },(err)=>{
     this.error=err.error.message
   })
+
   
   }
 

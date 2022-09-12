@@ -23,6 +23,7 @@ import { UpdateCitationComponent } from './modules/update-citation/update-citati
 import { ProtectUrlGuard } from './custom/protect-url.guard';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 const routes: Routes = [
    {
     path:"custom",
@@ -93,6 +94,10 @@ component:AddCitationComponent
   {
     path:"reset/:token",
     component:NewPasswordComponent
+  },
+  {
+    path:"check",
+    component:ResetPasswordComponent
   }
 ]
 },

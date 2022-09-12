@@ -10,10 +10,13 @@ import { WebStorageService } from '../../services/web-storage.service';
 })
 export class DefautCitationComponent implements OnInit {
 defaultCitation:any=[]
+dataArray:any=[]
+defaultAutors:any=[];
 control=true;
  autoSlide=true;
  slideInterval=7000;
  indicator=false
+ listArr:any=[];
  selectedIndex=0;
   constructor(
     private serviceCitation:ServiceCitationService,
@@ -26,8 +29,11 @@ control=true;
   }
 
   ngOnInit(): void {
-    this.serviceCitation.GetCitation().subscribe(res=>{
+    this.serviceCitation.GetCitation().subscribe((res:any)=>{
       this.defaultCitation=res
+      
+        
+     
     })
     if(this.autoSlide){
       this.AutoSlideCitation()
@@ -55,8 +61,10 @@ control=true;
         .subscribe();
 
         
-        this.serviceCitation.GetCitation().subscribe(res=>{
+        this.serviceCitation.GetCitation().subscribe((res:any)=>{
           this.defaultCitation=res
+            
+         
         })
     }
     }
@@ -64,10 +72,11 @@ control=true;
       this.webStorageService.saveObj(data)
       this.serviceCitation.likes(id,{likes:like+1})
       .subscribe();
-      this.serviceCitation.GetCitation().subscribe(res=>{
+      this.serviceCitation.GetCitation().subscribe((res:any)=>{
         this.defaultCitation=res
+          
+       
       })
-
     }     
   
 

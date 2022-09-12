@@ -14,6 +14,8 @@ import { WebStorageService } from './resources/services/web-storage.service';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -36,14 +38,22 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     ReactiveFormsModule,
     DefaultModuleModule,
     BrowserAnimationsModule,
-    ShadedResourceModule
+    ShadedResourceModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    
+  
   ],
   providers: [WebStorageService ],
   exports:[
      DefaultModule,
     ShadedModule,
     UserAuthModule,
-    DefaultModuleModule
+    DefaultModuleModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent]
 })

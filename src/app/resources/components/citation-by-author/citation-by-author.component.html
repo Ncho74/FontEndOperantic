@@ -4,6 +4,7 @@
        
       <div class="card mb-4 rounded-3 shadow-sm"*ngFor="let cit of defaultCitation; let i=index" [ngClass]="{'active-citation':selectedIndex===i}">
         <div class="card-header py-3 text-bg-primary border-primary">
+          <img [src]="cit.image" alt=""  class="rounded-circle" style="width: 25px;">
           <h4 class="my-0 fw-normal">{{cit.autor}}</h4>
         </div>
         <div class="card-body">
@@ -20,7 +21,7 @@
               <i class=" far fa-hand-point-right " id="likes"(click)="likes(cit._id,cit.likes)" > 
 
               </i>
-              <i>{{cit.likes|number}}</i>
+              <i>{{cit.likes||0|number}}</i>
           </div>
           </div>
         </div>
