@@ -22,8 +22,9 @@ export class ServiceCitationService {
 
   }
   GetCitation(){
+    const auth="Socrate"
   
-    return this.http.get(`${this.Api_rest}/author?author=socrate`)
+    return this.http.get(`${this.Api_rest}/author/${auth}`)
   }
    //Gestion d'erreur
 
@@ -36,7 +37,7 @@ export class ServiceCitationService {
 
   }
   GetCitationByAuthor(autor:any):Observable<any>{
-    return this.http.get(`${this.Api_rest}/author?author=${autor}`)
+    return this.http.get(`${this.Api_rest}/author/${autor}`)
   }
   bioAutorBycitation(id:any):Observable<any>{
     return this.http.get(`${this.Api_rest}/citation/${id}`)

@@ -10,6 +10,7 @@ import { AutorService } from 'src/app/services/autor.service';
   styleUrls: ['./add-autor.component.css']
 })
 export class AddAutorComponent implements OnInit {
+  error:any;
   authorForm:FormGroup
   user=sessionStorage.getItem("user")
 
@@ -42,14 +43,11 @@ export class AddAutorComponent implements OnInit {
 
      this.s.addAutor(this.authorForm.value).
           subscribe(()=>{
-            this.ngZone.run(()=>{
-              this.router.navigate(['custom/autorList'])
-            },(err:any)=>{
-              console.log(err);
-            });
+          
+              this.router.navigate(['custom/autorList']);
+          },(err:any)=>{
+            this.error=err.error.message
           })
-
-
   }
    
 }

@@ -31,9 +31,6 @@ control=true;
   ngOnInit(): void {
     this.serviceCitation.GetCitation().subscribe((res:any)=>{
       this.defaultCitation=res
-      
-        
-     
     })
     if(this.autoSlide){
       this.AutoSlideCitation()
