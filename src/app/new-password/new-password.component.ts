@@ -11,6 +11,10 @@ import { AdminService } from '../services/admin.service';
 export class NewPasswordComponent implements OnInit {
   token:any
   user_id:any
+  password:any;
+
+  show = false;
+  show1 = false;
   name = 'Angular ' + VERSION.major;
   passwordsMatching = false;
   isConfirmPasswordDirty = false;
@@ -51,7 +55,26 @@ export class NewPasswordComponent implements OnInit {
        })
    
   }
-
+  onClick(pass:any) {
+    pass.type
+     if (pass.type === 'password') {
+       pass.type = 'text';
+       this.show = true;
+     } else {
+       pass.type = 'password';
+       this.show = false;
+     }
+    }
+    onClick1(pass:any) {
+      pass.type
+       if (pass.type === 'password') {
+         pass.type = 'text';
+         this.show1 = true;
+       } else {
+         pass.type = 'password';
+         this.show1 = false;
+       }
+      }
   onSubmit(): void {
     if (!this.resetPasswordForm?.valid) {
       return;

@@ -23,10 +23,12 @@
 
               </div>
               <div class="form-group">
-                <input id="password-field" type="password" class="form-control" required formControlName="password">
+                <input id="password-field" type="password" #password class="form-control" required formControlName="password">
                 <label class="form-control-placeholder" for="password">Mot de passe</label>
-
-                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                <div  class="eyebutton btn"  (click)="onClick(password)">
+                  <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
+                  <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i>
+                </div>
 
               </div>
               <div class="form-group">

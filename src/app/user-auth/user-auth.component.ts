@@ -10,6 +10,9 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./user-auth.component.css']
 })
 export class UserAuthComponent implements OnInit {
+  password:any;
+
+  show = false;
   error:any
    loginForm:FormGroup 
   constructor(
@@ -33,7 +36,18 @@ export class UserAuthComponent implements OnInit {
       })
      }
 
+
   ngOnInit(): void {
+  }
+  onClick(pass:any) {
+   pass.type
+    if (pass.type === 'password') {
+      pass.type = 'text';
+      this.show = true;
+    } else {
+      pass.type = 'password';
+      this.show = false;
+    }
   }
 
   onSubmit(){
