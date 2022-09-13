@@ -8,7 +8,7 @@ import { WebStorageService } from '../../services/web-storage.service';
   styleUrls: ['./citation-favotes.component.css']
 })
 export class CitationFavotesComponent implements OnInit {
-
+  image:any;
   defaultCitation:any=[]
   control=true;
    autoSlide=true;
@@ -24,8 +24,10 @@ export class CitationFavotesComponent implements OnInit {
   
     ngOnInit(): void {
       this.serviceCitation.findFavoritesCitation()
-      .subscribe(res=>{
-        this.defaultCitation=res
+      .subscribe((res:any)=>{
+        this.defaultCitation=res[0]
+        this.image=res[1];
+        console.log(this.image)
       })
       if(this.autoSlide){
         this.AutoSlideCitation()
@@ -54,8 +56,9 @@ export class CitationFavotesComponent implements OnInit {
           .subscribe();
   
           
-          this.serviceCitation.GetCitation().subscribe(res=>{
-            this.defaultCitation=res
+          this.serviceCitation.GetCitation().subscribe((res:any)=>{
+            this.defaultCitation=res[0];
+            this.image=res[1];
           })
       }
       }
@@ -63,8 +66,9 @@ export class CitationFavotesComponent implements OnInit {
         this.webStorageService.saveObj(data)
         this.serviceCitation.likes(id,{likes:like+1})
         .subscribe();
-        this.serviceCitation.GetCitation().subscribe(res=>{
-          this.defaultCitation=res
+        this.serviceCitation.GetCitation().subscribe((res:any)=>{
+          this.defaultCitation=res[0]
+          this.image=res[1];
         })
   
       }     

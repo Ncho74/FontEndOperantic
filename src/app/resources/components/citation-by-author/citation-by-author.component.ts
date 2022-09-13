@@ -11,6 +11,7 @@ import { map } from 'rxjs';
 })
 export class CitationByAuthorComponent implements OnInit {
   defaultCitation:any=[]
+  image:any
   likeList:any=[]
   control=true;
    autoSlide=true;
@@ -33,7 +34,9 @@ export class CitationByAuthorComponent implements OnInit {
     this.getAuthor = this.activatedRoute.snapshot.paramMap.get('author');
     this.serviceCitation. GetCitationByAuthor(this.getAuthor ).
       pipe(map((res:any)=>{
-        this.defaultCitation=res
+        this.defaultCitation=res[0]
+        this.image=res[1][0]
+
       }))
     .subscribe()
     if(this.autoSlide){
@@ -68,7 +71,9 @@ export class CitationByAuthorComponent implements OnInit {
 
        this.serviceCitation.GetCitationByAuthor(this.getAuthor )
          .subscribe((res)=>{
-          this.defaultCitation=res
+          this.defaultCitation=res[0]
+          this.image=res[1][0]
+
         })
       }
       }
@@ -79,7 +84,9 @@ export class CitationByAuthorComponent implements OnInit {
         .subscribe();
         this.serviceCitation.GetCitationByAuthor(this.getAuthor )
         .subscribe((res)=>{
-        this.defaultCitation=res
+          this.defaultCitation=res[0]
+          this.image=res[1][0]
+  
       })
 
   
