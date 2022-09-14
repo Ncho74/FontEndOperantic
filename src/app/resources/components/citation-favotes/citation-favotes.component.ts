@@ -25,9 +25,9 @@ export class CitationFavotesComponent implements OnInit {
     ngOnInit(): void {
       this.serviceCitation.findFavoritesCitation()
       .subscribe((res:any)=>{
-        this.defaultCitation=res[0]
-        this.image=res[1];
-        console.log(this.image)
+        this.defaultCitation=res
+       
+       
       })
       if(this.autoSlide){
         this.AutoSlideCitation()
@@ -56,9 +56,11 @@ export class CitationFavotesComponent implements OnInit {
           .subscribe();
   
           
-          this.serviceCitation.GetCitation().subscribe((res:any)=>{
-            this.defaultCitation=res[0];
-            this.image=res[1];
+          this.serviceCitation.findFavoritesCitation()
+          .subscribe((res:any)=>{
+            this.defaultCitation=res
+           
+           
           })
       }
       }
@@ -66,9 +68,11 @@ export class CitationFavotesComponent implements OnInit {
         this.webStorageService.saveObj(data)
         this.serviceCitation.likes(id,{likes:like+1})
         .subscribe();
-        this.serviceCitation.GetCitation().subscribe((res:any)=>{
-          this.defaultCitation=res[0]
-          this.image=res[1];
+        this.serviceCitation.findFavoritesCitation()
+        .subscribe((res:any)=>{
+          this.defaultCitation=res
+         
+         
         })
   
       }     
