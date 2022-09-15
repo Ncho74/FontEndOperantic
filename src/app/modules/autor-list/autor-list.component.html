@@ -35,4 +35,17 @@
           </div>
       </div>
   </div>
+  <div class="row">
+    <div class="col" *ngIf="author.length==0">
+      <p   class=" rounded">
+        <marquee behavior="" direction="">
+          Vous n'avez pas d'Auteur Ajouter veillez  cliquer sur le bouton  pour Ajouter
+        </marquee>
+
+           <span id="card1">
+            <a routerLink="/custom/addAutor" ><i class="fa-solid fa-plus fas fa-plus" style="color:blue; font-size:150px;"></i></a> 
+           </span>
+      </p>
+    </div>
+  </div>
 </div>

@@ -5,11 +5,11 @@
           <!-- ============================================================== -->
           <!-- Logo -->
           <!-- ============================================================== -->
-          <a class="navbar-brand" href="https://www.operantic.com/" target="_blank">
+          <a class="navbar-brand" href="/">
               <!-- Logo icon -->
               <b class="logo-icon">
                   <!-- Dark Logo icon -->
-                  <img src="https://www.operantic.com/sites/default/files/logo-operantic.png" alt="homepage" width="50"/>
+                  <img [src]='logo1' alt="homepage" width="50"/>
               </b>
               <!--End Logo icon -->
               <!-- Logo text -->
@@ -35,7 +35,12 @@
             </div>
             <div class="col text-center m-auto">
                 <div  style="margin-left: 700px ;">
-                    <a routerLink="/user" routerLinkActive="active" class="btn btn-danger text-white">S'identifier</a>
+                  
+                </div>
+                <div  style="margin-left: 500px ; width: 50%;" >
+                    <a routerLink="/user" routerLinkActive="active" class="btn btn-danger text-white" *ngIf="!user">S'identifier</a>
+
+                    <a routerLink="/custom" routerLinkActive="active" class="btn btn-success text-white" *ngIf="user">Acceder a mon espace</a>
 
                 </div>
             </div>

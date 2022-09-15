@@ -2,9 +2,6 @@
   <div class="card">
       <div class="card-body">
           <form class="form-horizontal form-material" [formGroup]="authorForm" (ngSubmit)="onSubmit()">
-          <div class="m-auto">
-            <p class="bg-danger text-white text-center">{{error}}</p>
-          </div>
               <div class="form-group mb-4">
                   <label class="col-md-12 p-0">Nom et prenom<i style="color:red;">*</i></label>
                   <div class="col-md-12 border-bottom p-0">
@@ -29,7 +26,7 @@
               <div class="form-group mb-4">
                   <label class="col-md-12 p-0">Date de décès de l'auteur</label>
                   <div class="col-md-12 border-bottom p-0">
-                      <input type="text"  class="form-control p-0 border-0" placeholder="15 Fevier 399 av.J.C" min="8"  formControlName="dateDeces_aut">
+                      <input type="date"  class="form-control p-0 border-0"    formControlName="dateDeces_aut">
                   </div>
               </div>
               <div class="form-group mb-4">

@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
+import { SnackBarService } from '../service/snack-bar.service';
 import { AdminService } from '../services/admin.service';
 
 @Component({
@@ -13,13 +14,14 @@ export class UserAuthComponent implements OnInit {
   password:any;
 
   show = false;
-  error:any
+  error:any;
    loginForm:FormGroup 
   constructor(
     private s:AdminService,
     private formBuilder: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
+    private snackBarService:SnackBarService
     ) {
       this.loginForm=this.formBuilder.group({
         email:new FormControl(null,
@@ -57,10 +59,12 @@ export class UserAuthComponent implements OnInit {
     this.s.login(this.loginForm.value)
         
           .subscribe(()=>{
+            this.snackBarService.openSuccessSnackBar('Vous etes connectes !')
             this.router.navigate(["custom"])
           },
         (err:any)=>{
            this.error=err.error.message
+           this.snackBarService.openFailureSnackBar(this.error)
         }
           );
   }

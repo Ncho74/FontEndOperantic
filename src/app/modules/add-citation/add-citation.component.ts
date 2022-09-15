@@ -2,6 +2,7 @@ import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
+import { SnackBarService } from 'src/app/service/snack-bar.service';
 import { AutorService } from 'src/app/services/autor.service';
 import { CitationService } from 'src/app/services/citation.service';
 
@@ -11,6 +12,7 @@ import { CitationService } from 'src/app/services/citation.service';
   styleUrls: ['./add-citation.component.css']
 })
 export class AddCitationComponent implements OnInit {
+      error:any
     author:any=[];
     addCitation:FormGroup
     user=sessionStorage.getItem('user')
@@ -19,7 +21,8 @@ export class AddCitationComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private citationService:CitationService,
-    private aut:AutorService
+    private aut:AutorService,
+    private snackBarService:SnackBarService
   ) { 
     this.addCitation= this.formBuilder.group({
         theme_cit:["",Validators.required],
@@ -46,10 +49,12 @@ onSubmit():any{
 
   this.citationService.addCitation(this.addCitation.value)
       .subscribe(()=>{
+        this.snackBarService.openSuccessSnackBar('la Citation ete ajouter avec success')
         this.ngZone.run(()=>{
           this.router.navigate(['custom/citationList'])
         },(err:any)=>{
-          console.log(err);
+          this.error=err.error.message
+          this.snackBarService.openFailureSnackBar(this.error);
         });
       })
 }

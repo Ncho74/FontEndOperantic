@@ -1,5 +1,4 @@
 import {Injectable } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { likesObj } from '../data/citation';
 @Injectable({
   providedIn: 'root'
@@ -35,7 +34,7 @@ saveObj(data:any){
     }else{
       const arrLike=[];
         arrLike.push(this.likesObj)
-        sessionStorage.setItem("listLike",JSON.stringify(  arrLike));
+        sessionStorage.setItem("listLike",JSON.stringify(arrLike));
     }
 }
 delete(id:any){

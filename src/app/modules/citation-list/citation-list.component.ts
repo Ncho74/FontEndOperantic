@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { map } from 'rxjs';
+import { SnackBarService } from 'src/app/service/snack-bar.service';
 import { CitationService } from 'src/app/services/citation.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class CitationListComponent implements OnInit {
   constructor(
     private s:CitationService,
     private ngZone:NgZone,
-    private router:Router
+    private router:Router,
+    private snackBarService:SnackBarService
 
   ) { }
 
@@ -67,7 +69,9 @@ export class CitationListComponent implements OnInit {
     if(window.confirm('Vous etes de vouloir supprimer ?')){
       this.s.deleteCitation(id).subscribe(()=>{
         this.citation.splice(i,1)
-        window.location.reload()
+        this.snackBarService.openSuccessSnackBar(`La Citation N.${i+1} a ete suprimer ! `)
+        this.listCitation()
+        
       })
     }
   }

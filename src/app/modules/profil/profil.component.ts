@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SnackBarService } from 'src/app/service/snack-bar.service';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -22,7 +23,9 @@ export class ProfilComponent implements OnInit {
     private admin:AdminService,
     private router: Router,
     private ngZone: NgZone,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private snackBarService:SnackBarService
+
     ) { }
 
   ngOnInit(): void {
@@ -34,12 +37,13 @@ export class ProfilComponent implements OnInit {
   onSubmit(){
     this.admin.updateUser(this.profile._id,this.profile)
               .subscribe(()=>{
+                this.snackBarService.openSuccessSnackBar('Votre profile a ete modifier avec success')
                 this.ngZone.run(()=>{
                   this.router.navigate(['custom/'])
-                },(err:any)=>{
-                  console.log(err);
                 });
                 
+              },(err:any)=>{
+                  this.snackBarService.openFailureSnackBar(err.error.message)
               })
   }
 

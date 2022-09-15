@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderDefaultComponent implements OnInit {
   page:string ="Secret de la vision et la sagesse";
+  logo1="assets/plugins/images/home--v2.png";
+  user=sessionStorage.getItem('user')
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.user)
   }
 
 }

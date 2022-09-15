@@ -7,6 +7,7 @@ import { CitationFavotesComponent } from '../resources/components/citation-favot
 import { DefautBioAutorComponent } from '../resources/components/defaut-bio-autor/defaut-bio-autor.component';
 import { RouterModule } from '@angular/router';
 import { AdminService } from '../services/admin.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,9 @@ import { AdminService } from '../services/admin.service';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports:[
     FooterComponent,

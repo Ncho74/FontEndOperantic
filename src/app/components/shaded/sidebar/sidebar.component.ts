@@ -20,6 +20,7 @@ export class SidebarComponent implements OnInit {
   deconnexion(){
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user")
+    localStorage.clear()
     this.router.navigate(['/'])
   
   }

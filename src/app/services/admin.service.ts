@@ -23,6 +23,7 @@ export class AdminService {
       return this.http.post(api_rest,data)
                       .pipe(map((token:any)=>{
                           sessionStorage.setItem("token",token.token)
+                          localStorage.setItem("token",token.token);
                         
                       }
                         
@@ -34,6 +35,7 @@ export class AdminService {
     return this.http.get(`${this.ApiRest_url}/user/${data}`,{headers:this.httpHeaders})
       .pipe(map((res:any)=>{
         sessionStorage.setItem("user",res._id)
+        localStorage.setItem("user",res._id)
         return res ||{}
       }))
 

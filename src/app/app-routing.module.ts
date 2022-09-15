@@ -24,6 +24,7 @@ import { ProtectUrlGuard } from './custom/protect-url.guard';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthGuard } from './custom/auth.guard';
 const routes: Routes = [
    {
     path:"custom",
@@ -79,10 +80,15 @@ component:AddCitationComponent
 },
 {
   path:"user",
-  component:UserSignUpComponent,  
+  component:UserSignUpComponent, 
+  canActivate:[AuthGuard],
+  
   children:[{
     path:"",
     component:UserAuthComponent,
+ 
+  
+    
   },{
     path:"sign",
     component:UserloginComponent

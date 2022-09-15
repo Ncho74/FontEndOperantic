@@ -32,7 +32,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CitationListComponent,
     MyFavitesComponent,
     UpdateAuthorComponent,
-    UpdateCitationComponent 
+    UpdateCitationComponent,
+    
 
   ],
   imports: [
@@ -43,6 +44,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  providers:[AdminService,AutorService,CitationService]
+  providers:[AdminService,AutorService,CitationService,]
 })
 export class DefaultModule { }

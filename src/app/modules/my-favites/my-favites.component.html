@@ -39,13 +39,19 @@
       ></i>
       </div>
   </div>
+  <div class="row">
+    <div class="col" *ngIf="citation.length==0">
+      <p   class=" rounded">
+        <marquee behavior="" direction="">
+          Vous n'avez pas de citation  favorite ajouter, veillez cliquer sur le bouton  pour Ajouter
+        </marquee>
 
-  </div>
-</div>
-<div class="container" *ngIf="citation===null && citation.length===0">
-  <div class="col-md-12">
-    <div>
-      <p>Vous n'avez aucune citations favorites</p>
+           <span id="card1">
+            <a routerLink="/custom/addCitation" ><i class="fa-solid fa-plus fas fa-plus" style="color:blue; font-size:150px;"></i></a> 
+           </span>
+      </p>
     </div>
+  </div>
+
   </div>
 </div>

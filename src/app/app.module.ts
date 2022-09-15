@@ -16,6 +16,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { NewPasswordComponent } from './new-password/new-password.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import { ErrComponent, SuccessComponent } from './userlogin/userlogin.component';
+import { SnackBarService } from './service/snack-bar.service';
 
 
 
@@ -25,6 +28,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ForgetPasswordComponent,
     ResetPasswordComponent,
     NewPasswordComponent,
+    SuccessComponent,
+    ErrComponent
   
    ],
   imports: [
@@ -41,10 +46,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ShadedResourceModule,
     MatButtonToggleModule,
     MatSnackBarModule,
+    MatDialogModule
     
   
   ],
-  providers: [WebStorageService ],
+  providers: [WebStorageService, 
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
+    SnackBarService,
+   ],
   exports:[
      DefaultModule,
     ShadedModule,
@@ -54,6 +63,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
+    
   ],
   bootstrap: [AppComponent]
 })

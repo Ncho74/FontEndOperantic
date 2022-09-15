@@ -11,14 +11,14 @@
       </div>
 
       <div class="col-md-5 offset-md-1 mb-3">
-        <form>
+        <form [formGroup]="userSub" (ngSubmit)="userSuscribe()">
           <h5>Abonnez-vous à notre newsletter</h5>
           <p>Abonnez-vous à notre newsletter
             Résumé mensuel de ce qui est nouveau et excitant de notre part.</p>
           <div class="d-flex flex-column flex-sm-row w-100 gap-2">
             <label for="newsletter1" class="visually-hidden">Email</label>
-            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-            <button class="btn btn-primary" type="button">S'abonner</button>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address"formControlName='email' >
+            <button [disabled]="!userSub.valid" class="btn btn-primary" type="button">S'abonner</button>
           </div>
         </form>
       </div>

@@ -59,9 +59,18 @@ export class ForgetPasswordComponent implements OnInit {
         });
         this ._snackBar.openFromComponent(ResetPasswordComponent, {
           duration : 5 * 1000 ,
+          horizontalPosition:'center',
+          verticalPosition:'top'
+          
         });
   },(err)=>{
     this.error=err.error.message
+    this ._snackBar.open(this.error,'Ok', {
+      duration : 5 * 1000 ,
+      horizontalPosition:'center',
+      verticalPosition:'top'
+      
+    });
   })
 
   

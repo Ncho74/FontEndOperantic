@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { AdminService} from '../services/admin.service';
@@ -43,6 +44,7 @@ export class UserloginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
+    private _snackBar: MatSnackBar
   ) {
     
   }
@@ -63,13 +65,23 @@ export class UserloginComponent implements OnInit {
        return res
   }))
     .subscribe(()=>{
-     
-      this.ngZone.run(()=>{
-        this.router.navigate(['/user'])
-      
-    })
+      this ._snackBar.openFromComponent(SuccessComponent, {
+        duration : 5 * 1000 ,
+        verticalPosition: 'top',
+        panelClass: ['.blue-snackbar']
+        
+      });
+      this.router.navigate(['/user'])
   },(err:any)=>{
     this.error=err.error.message
+   
+    this ._snackBar.openFromComponent( ErrComponent, {
+      duration : 5 * 1000 ,
+      verticalPosition: 'top',
+    
+      panelClass: ['blue-snackbar'],
+      
+    });
   })
 
 
@@ -112,4 +124,45 @@ onClick(pass:any) {
         }
       };
     }
+}
+@Component({
+  selector: 'app-success',
+  template:`
+  <div class="alert alert-success" role="alert">
+    Inscription a ete prise en compte
+  </div>
+  `,
+  styles:[`.blue-snackbar {
+    background: #2196F3;
+  }`
+  
+]
+  
+})
+export class SuccessComponent  implements OnInit{
+  constructor(){}
+  ngOnInit(): void {
+  }
+  
+}
+
+@Component({
+  selector: 'app-err',
+  template:`
+  <div class="alert  text-white" role="alert">
+   Compte existant !
+  </div>
+  `,
+  styles:[`.blue-snackbar {
+    background: red;
+  }`
+  
+]
+  
+})
+export class ErrComponent  implements OnInit{
+  constructor(){}
+  ngOnInit(): void {
+  }
+  
 }

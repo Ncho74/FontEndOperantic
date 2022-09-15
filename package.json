@@ -26,6 +26,7 @@
     "emailjs": "^4.0.1",
     "getmac": "^5.20.0",
     "jquery": "^3.6.0",
+    "jquery-confirm": "^3.3.4",
     "ngx-cookie-service": "^14.0.1",
     "ngx-pagination": "^6.0.2",
     "ngx-webstorage-service": "^5.0.0",

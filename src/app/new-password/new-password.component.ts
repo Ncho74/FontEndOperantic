@@ -1,5 +1,6 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../services/admin.service';
 
@@ -42,7 +43,8 @@ export class NewPasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private admin:AdminService,
     private router:Router,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private snackBar: MatSnackBar
 
     ) {}
   ngOnInit(): void {
@@ -104,4 +106,25 @@ export class NewPasswordComponent implements OnInit {
       }
     };
   }
+  openSuccessSnackBar(){
+    this.snackBar.open("Login Successful", "OK", {
+      duration: 3000,
+      panelClass: ['green-snackbar', 'login-snackbar'],
+     });
+    }
+}
+@Component({
+  selector: 'app-newpwdSnack-bar',
+  template:``,
+  styles: [`.green-snackbar {
+    background: rgb(65, 252, 134);
+    color: white;
+}`]
+})
+
+export class  NewPasswordSnackBar implements OnInit{
+  ngOnInit(): void {
+    
+  }
+
 }
