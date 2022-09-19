@@ -24,9 +24,10 @@ export class FooterComponent implements OnInit {
   }
   userSuscribe():void{
 
-    if(this.userSub.valid){
-      this.snackBarService.openSuccessSnackBar('Vous abonnement a ete pris en compte !')
+    if( !this.userSub.valid){
+       return
     }
+    this.snackBarService.openSuccessSnackBar('Vous abonnement a ete pris en compte !,\n Vous venez les informations recentes concernant les visions de  Secret de la Vision et de Sagesse.\n\n\n\ Merci !')
      this.userSub.reset()
   }
   
