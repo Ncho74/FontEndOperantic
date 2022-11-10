@@ -69,16 +69,16 @@ export class CitationService {
                     ))
   }
   dashbord():Observable<any>{
-      this.admin.getuserConnect(sessionStorage.getItem('token'))
-        .subscribe((res:any)=>{
-          sessionStorage.setItem("user",res._id)
-          
-        })
-    let id=sessionStorage.getItem("user")
-    if(id===null){
+    this.admin.getuserConnect(localStorage.getItem('token')).subscribe((res:any)=>{
+      this.id=res._id;
+    })
+   
+    if(this.id===null) {
       window.location.reload()
     }
-    let api_rest=`${this.ApiRest_url}/dashbord/${id}`
+  
+
+    let api_rest=`${this.ApiRest_url}/dashbord/${this.id}`
 
     return this.http.get(api_rest)
                     .pipe(catchError(

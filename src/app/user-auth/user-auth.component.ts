@@ -58,7 +58,14 @@ export class UserAuthComponent implements OnInit {
     }
     this.s.login(this.loginForm.value)
         
-          .subscribe(()=>{
+          .subscribe((res:any)=>{
+            localStorage.setItem("token",res.token);
+            sessionStorage.setItem("token",res.token);
+            this.s.getuserConnect(res.token).subscribe((r)=>{
+              sessionStorage.setItem("user",r._id);
+              localStorage.setItem("user",r._id);
+
+            })
             this.snackBarService.openSuccessSnackBar('Vous etes connectes !')
             this.router.navigate(["custom"])
           },

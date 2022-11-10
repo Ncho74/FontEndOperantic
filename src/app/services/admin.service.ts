@@ -20,15 +20,9 @@ export class AdminService {
   }
   login(data:any):Observable<any>{
       let api_rest=`${this.ApiRest_url}/login`;
-      return this.http.post(api_rest,data)
-                      .pipe(map((token:any)=>{
-                          sessionStorage.setItem("token",token.token)
-                          localStorage.setItem("token",token.token);
-                        
-                      }
-                        
-                        
-                        ))
+      return this.http.post(api_rest,data);
+                
+                       
   }
   getuserConnect(data:any):Observable<any>{
 

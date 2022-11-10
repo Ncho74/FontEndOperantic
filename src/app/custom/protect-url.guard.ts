@@ -14,7 +14,7 @@ export class ProtectUrlGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-     const token=sessionStorage.getItem("token");
+     const token=localStorage.getItem("token");
      if(token===null){
           this.router.navigate(['/'])
       return false
